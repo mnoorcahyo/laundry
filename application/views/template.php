@@ -322,7 +322,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <?php echo $this->load->view($view);?>
+            <?php echo $this->load->view($view);
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
