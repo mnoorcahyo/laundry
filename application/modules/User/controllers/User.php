@@ -18,10 +18,23 @@ class User extends MX_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct() {
+		parent::__construct();
+		//sebelum menggunakan model, maka model harus di load terlebih dahulu
+		$this->load->model(array('User_model' => 'user_model'));
+	}
+
 	public function index()
 	{
+		$data['pengguna'] = $this->user_model->getAllData()->result_array();
 		$data['title'] = 'User Page';
 		$data['view'] = 'User/main';
+		$this->load->view('template', $data);
+	}
+
+	public function add() {
+		$data['title'] = 'User Page Add';
+		$data['view'] = 'User/add';
 		$this->load->view('template', $data);
 	}
 }
